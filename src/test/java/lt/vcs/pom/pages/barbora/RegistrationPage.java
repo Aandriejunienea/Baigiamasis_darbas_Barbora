@@ -18,6 +18,7 @@ public class RegistrationPage {
     private static final By CheckboxSutikimas = By.xpath("(//div[contains(@class, 'b-input-checkbox-styled')])[3]");
     private static final By buttonSubmitRegistruotis = By.xpath("//button[@id='fti-wizard-submit']");
     private static final By paragraphTavoKrepselisTuscias = By.xpath("//span[@class='b-cart--empty-content--title']");
+    private static final By paragraphErrorMessage = By.xpath("//div[@class='b-alert b-alert--error']");
 
     public static void open(String url) {
         Common.openUrl(url, 5);
@@ -67,7 +68,7 @@ public class RegistrationPage {
         Common.clickOnElement(CheckboxSutikimas);
     }
 
-    public static void clickRegistruotis01() {
+    public static void clickRegistruotisSubmit() {
         Common.clickOnElement(buttonSubmitRegistruotis);
     }
 
@@ -75,4 +76,7 @@ public class RegistrationPage {
         return Common.getTextFromElement(paragraphTavoKrepselisTuscias);
     }
 
+    public static String readErrorMessage() {
+        return Common.getTextFromElement(paragraphErrorMessage);
+    }
 }

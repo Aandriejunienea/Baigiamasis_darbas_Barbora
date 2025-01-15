@@ -37,10 +37,37 @@ public class RegistrationTests extends TestBase {
         RegistrationPage.clickVilneles3();
         RegistrationPage.clickTesti();
         RegistrationPage.clickSutikimas();
-        RegistrationPage.clickRegistruotis01();
+        RegistrationPage.clickRegistruotisSubmit();
         RegistrationPage.readTextinHomePage();
 
         actualResult = RegistrationPage.readTextinHomePage();
+
+        Assert.assertTrue(
+                actualResult.contains(expectedResult),
+                "\nActual: %s\nExpected:%s".formatted(actualResult, expectedResult)
+        );
+    }
+
+    @Test
+    public void testUnsuccessfulRegistrationWithDuplicateEmail() {
+        String vardasIrPavarde = "Akvile Pavarde";
+        String elPastoAdresas = "demo@gmail.com";
+        String slaptazodis = "Slaptazodis!123";
+        long telefonoNumeris = 61234567;
+
+        String expectedResult = "Šis el. pašto adresas jau registruotas BARBOROJE";
+        String actualResult = "";
+
+        RegistrationPage.clickRegistruotis();
+        RegistrationPage.clickRegistruotisSuElPastu();
+        RegistrationPage.writeVardasIrPavarde(vardasIrPavarde);
+        RegistrationPage.writeElPastoAdresas(elPastoAdresas);
+        RegistrationPage.writeSlaptazodis(slaptazodis);
+        RegistrationPage.writeTelefonoNumeris(telefonoNumeris);
+        RegistrationPage.clickTesti();
+        RegistrationPage.readErrorMessage();
+
+        actualResult = RegistrationPage.readErrorMessage();
 
         Assert.assertTrue(
                 actualResult.contains(expectedResult),
