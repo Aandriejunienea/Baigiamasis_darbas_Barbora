@@ -63,18 +63,33 @@ public class Common {
 
     public static void scrollDownWithActions() {
         getActions().sendKeys(Keys.PAGE_DOWN).perform();
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void moveToElementWithActions(By locator){
         getActions().moveToElement(getElement(locator)).perform();
     }
 
-    public static void clearWithActions(By locator) {
-        getActions().click((WebElement) locator)
+    public static void clearAndSendKeysWithActions(By locator, String text) {
+        getActions().click(getElement(locator))
                 .keyDown(Keys.CONTROL)
                 .sendKeys("a")
                 .keyUp(Keys.CONTROL)
                 .sendKeys(Keys.DELETE)
+                .sendKeys(text)
                 .perform();
     }
+
+    public static void clickOnElementWithActions(By locator){
+        getActions().click(getElement(locator)).perform();
+    }
+
+    public static String getElementAttributeValue(By locator, String attribute) {
+        return getElement(locator).getDomAttribute(attribute);
+    }
+
 }
