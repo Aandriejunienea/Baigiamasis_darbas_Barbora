@@ -9,7 +9,6 @@ public class ProfileEditingPage {
     private static final By buttonSaugoti = By.xpath("//button[@id='fti-user-settings-save']");
     private static final By buttonPatvirtinti = By.xpath("//button[@id='fti-modal-option-1']");
     private static final By buttonUzdaryti = By.xpath("//button[@class='c-btn c-btn--gray c-btn--block c-btn--center']");
-    private static final By inputPavardeNew = By.xpath("(//div[@class='content-block--item b-input-field--root']//input");
 
     public static void open(String url) {
         Common.openUrl(url, 5);
@@ -20,14 +19,13 @@ public class ProfileEditingPage {
     }
 
 
-    public static void writeNewPavarde(String pavarde) {
-        Common.clearWithActions(inputPavarde);
-        Common.sendKeysToElement(inputPavarde, pavarde);
+    public static void sendKeysWithAction(String pavarde) {
+        Common.clearAndSendKeysWithActions(inputPavarde, pavarde);
     }
 
     public static void clickSaugoti() {
         Common.scrollDownWithActions();
-        Common.clickOnElement(buttonSaugoti);
+        Common.clickOnElementWithActions(buttonSaugoti);
     }
 
     public static void clickPatvirtinti() {
@@ -39,6 +37,7 @@ public class ProfileEditingPage {
     }
 
     public static String readPavardeNew() {
-        return Common.getTextFromElement(inputPavardeNew);
+        return Common.getElementAttributeValue(inputPavarde, "value");
     }
+
 }

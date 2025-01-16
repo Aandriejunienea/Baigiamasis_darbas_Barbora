@@ -1,6 +1,7 @@
 package lt.vcs.pom.tests.barbora;
 
 import lt.vcs.pom.pages.barbora.DeleteAccountPage;
+import lt.vcs.pom.pages.barbora.HeaderPage;
 import lt.vcs.pom.pages.barbora.LoginPage;
 import lt.vcs.pom.pages.barbora.ProfileEditingPage;
 import lt.vcs.pom.tests.TestBase;
@@ -16,21 +17,22 @@ public class ProfileEditingTests extends TestBase {
     }
 
     @Test
-    public void testProfileDataEditing() {
+    public void testProfileDataEditingChangePavarde() {
         String elPastoAdresas = "demo@gmail.com";
         String slaptazodis = "Slaptazodis!123";
         String pavarde = "Andriejuniene";
 
-        String expectedResult = "Jūsų vartotojo duomenys yra sėkmingai pašalinti";
+        String expectedResult = "Andriejuniene";
         String actualResult = "";
 
         LoginPage.login(elPastoAdresas, slaptazodis);
-        DeleteAccountPage.clickManoNustatymai();
+        HeaderPage.clickManoNustatymai();
         ProfileEditingPage.clickPavarde();
-        ProfileEditingPage.writeNewPavarde(pavarde);
+        ProfileEditingPage.sendKeysWithAction(pavarde);
         ProfileEditingPage.clickSaugoti();
         ProfileEditingPage.clickPatvirtinti();
         ProfileEditingPage.clickUzdaryti();
+        HeaderPage.clickManoNustatymai();
 
         actualResult = ProfileEditingPage.readPavardeNew();
 
