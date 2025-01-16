@@ -79,4 +79,5 @@ public class RegistrationPage {
     public static String readErrorMessage() {
         return Common.getTextFromElement(paragraphErrorMessage);
     }
+
 }

@@ -43,7 +43,6 @@ public class LoginPage extends TestBase {
         return "";  // Jei nieko nerasta, grąžina tuščią tekstą
     }
 
-
     public static void open(String url) {
         Common.openUrl(url, 5);
     }
@@ -78,6 +77,13 @@ public class LoginPage extends TestBase {
 
     public static String readAlertMessage() {
         return Common.getTextFromElement(paragraphAlertMessage);
+    }
+
+    public static void login(String elPastoAdresas, String slaptazodis){
+        Common.clickOnElement(buttonPrisijungti);
+        Common.sendKeysToElement(inputElPastoAdresas, elPastoAdresas);
+        Common.sendKeysToElement(inputSlaptazodis, slaptazodis);
+        Common.clickOnElement(buttonPrisijungtiSuElPastu);
     }
 
 }

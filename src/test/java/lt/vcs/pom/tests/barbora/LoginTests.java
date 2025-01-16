@@ -4,7 +4,6 @@ import lt.vcs.pom.pages.barbora.LoginPage;
 import lt.vcs.pom.pages.barbora.RegistrationPage;
 import lt.vcs.pom.tests.TestBase;
 import lt.vcs.pom.utils.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
