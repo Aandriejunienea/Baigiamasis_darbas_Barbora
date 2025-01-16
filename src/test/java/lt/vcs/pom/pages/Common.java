@@ -69,4 +69,12 @@ public class Common {
         getActions().moveToElement(getElement(locator)).perform();
     }
 
+    public static void clearWithActions(By locator) {
+        getActions().click((WebElement) locator)
+                .keyDown(Keys.CONTROL)
+                .sendKeys("a")
+                .keyUp(Keys.CONTROL)
+                .sendKeys(Keys.DELETE)
+                .perform();
+    }
 }
