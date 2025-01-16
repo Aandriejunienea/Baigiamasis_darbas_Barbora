@@ -2,7 +2,9 @@ package lt.vcs.pom.pages;
 
 import lt.vcs.pom.utils.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -55,7 +57,16 @@ public class Common {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public static void scrollDown() {
-        scrollDown();
+    private static Actions getActions() {
+        return new Actions(Driver.getDriver());
     }
+
+    public static void scrollDownWithActions() {
+        getActions().sendKeys(Keys.PAGE_DOWN).perform();
+    }
+
+    public static void moveToElementWithActions(By locator){
+        getActions().moveToElement(getElement(locator)).perform();
+    }
+
 }
