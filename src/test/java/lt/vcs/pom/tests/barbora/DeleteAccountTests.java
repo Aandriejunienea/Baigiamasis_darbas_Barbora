@@ -1,6 +1,7 @@
 package lt.vcs.pom.tests.barbora;
 
 import lt.vcs.pom.pages.barbora.DeleteAccountPage;
+import lt.vcs.pom.pages.barbora.HeaderPage;
 import lt.vcs.pom.pages.barbora.LoginPage;
 import lt.vcs.pom.pages.barbora.RegistrationPage;
 import lt.vcs.pom.tests.TestBase;
@@ -24,7 +25,7 @@ public class DeleteAccountTests extends TestBase {
         String actualResult = "";
 
         LoginPage.login(elPastoAdresas, slaptazodis);
-        DeleteAccountPage.clickManoNustatymai();
+        HeaderPage.clickManoNustatymai();
         DeleteAccountPage.clickPasalinti();
         DeleteAccountPage.clickPatvirtinti();
 

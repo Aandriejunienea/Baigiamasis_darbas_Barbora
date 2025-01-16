@@ -1,21 +1,13 @@
 package lt.vcs.pom.pages.barbora;
 
 import lt.vcs.pom.pages.Common;
-import lt.vcs.pom.tests.TestBase;
-import lt.vcs.pom.utils.Driver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class LoginPage extends TestBase {
-    @BeforeMethod
-    @Override
-    public void setUp() {
-    }
+public class LoginPage  {
 
     private static final By buttonPrisijungti = By.xpath("//button[@id='fti-header-login']");
     private static final By inputElPastoAdresas = By.xpath("//input[@id='email']");
@@ -33,14 +25,14 @@ public class LoginPage extends TestBase {
     );
 
     public static String getErrorMessageText() {
-        WebDriver driver = Driver.getDriver();  // Naudojame WebDriver gauti
         for (By locator : errorLocators) {
-            List<WebElement> elements = driver.findElements(locator);
-            if (!elements.isEmpty()) {
-                return elements.get(0).getText();  // Grąžina pirmą klaidos tekstą
+            try {
+                return Common.getTextFromElement(locator);
+            } catch (NoSuchElementException e) {
+
             }
         }
-        return "";  // Jei nieko nerasta, grąžina tuščią tekstą
+        return "<No data>";
     }
 
     public static void open(String url) {

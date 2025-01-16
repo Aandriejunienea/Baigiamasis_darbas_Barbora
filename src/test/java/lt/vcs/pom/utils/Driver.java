@@ -16,6 +16,7 @@ public class Driver {
         options.addArguments("start-maximized");
         options.addArguments("--force-device-scale-factor=0.70");
         options.addArguments("--incognito");
+        options.addArguments("--headless");
 
         driver = new ChromeDriver(options);
     }

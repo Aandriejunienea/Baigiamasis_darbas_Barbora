@@ -3,8 +3,6 @@ package lt.vcs.pom.tests.barbora;
 import lt.vcs.pom.pages.barbora.LoginPage;
 import lt.vcs.pom.pages.barbora.RegistrationPage;
 import lt.vcs.pom.tests.TestBase;
-import lt.vcs.pom.utils.Driver;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -14,8 +12,6 @@ public class LoginTests extends TestBase {
     @BeforeMethod
     @Override
     public void setUp() {
-        Driver.initChromeDriver();
-        WebDriver driver = Driver.getDriver();
         RegistrationPage.open("https://barbora.lt/");
     }
 
@@ -54,6 +50,7 @@ public class LoginTests extends TestBase {
                 {"demo@gmail.com", "", "Įvesk slaptažodį"},
                 {"demo@gmail.com", "Slaptazodis", "Neteisingas el. pašto adresas arba slaptažodis"},
                 {"demo@gmail.com", "  Slaptazodis!123", "Neteisingas el. pašto adresas arba slaptažodis"},
+
         };
     }
 
