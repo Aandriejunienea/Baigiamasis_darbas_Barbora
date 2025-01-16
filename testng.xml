@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Barbora" verbose="1">
+    <test name="Barbora">
+        <classes>
+            <class name="lt.vcs.pom.tests.barbora.RegistrationTests"/>
+            <class name="lt.vcs.pom.tests.barbora.LoginTests"/>
+            <class name="lt.vcs.pom.tests.barbora.ProfileEditingTests"/>
+            <class name="lt.vcs.pom.tests.barbora.DeleteAccountTests"/>
+        </classes>
+    </test>
+</suite>
