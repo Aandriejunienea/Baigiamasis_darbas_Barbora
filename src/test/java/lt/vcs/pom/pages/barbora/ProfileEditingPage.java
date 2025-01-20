@@ -39,5 +39,4 @@ public class ProfileEditingPage {
     public static String readPavardeNew() {
         return Common.getElementAttributeValue(inputPavarde, "value");
     }
-
 }

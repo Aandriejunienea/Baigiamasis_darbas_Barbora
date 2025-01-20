@@ -7,7 +7,7 @@ import org.openqa.selenium.NoSuchElementException;
 import java.util.Arrays;
 import java.util.List;
 
-public class LoginPage  {
+public class LoginPage {
 
     private static final By buttonPrisijungti = By.xpath("//button[@id='fti-header-login']");
     private static final By inputElPastoAdresas = By.xpath("//input[@id='email']");
@@ -71,11 +71,10 @@ public class LoginPage  {
         return Common.getTextFromElement(paragraphAlertMessage);
     }
 
-    public static void login(String elPastoAdresas, String slaptazodis){
+    public static void login(String elPastoAdresas, String slaptazodis) {
         Common.clickOnElement(buttonPrisijungti);
         Common.sendKeysToElement(inputElPastoAdresas, elPastoAdresas);
         Common.sendKeysToElement(inputSlaptazodis, slaptazodis);
         Common.clickOnElement(buttonPrisijungtiSuElPastu);
     }
-
 }

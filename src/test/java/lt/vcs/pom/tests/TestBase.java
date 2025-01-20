@@ -16,6 +16,4 @@ public abstract class TestBase {
     public void tearDown() {
         Common.quitDriver();
     }
-
-
 }

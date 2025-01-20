@@ -70,6 +70,5 @@ public class LoginTests extends TestBase {
                 "\nActual: %s\nExpected:%s".formatted(actualResult, expectedResult)
         );
     }
-
 }
 

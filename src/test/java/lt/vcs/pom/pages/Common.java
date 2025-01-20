@@ -70,7 +70,7 @@ public class Common {
         }
     }
 
-    public static void moveToElementWithActions(By locator){
+    public static void moveToElementWithActions(By locator) {
         getActions().moveToElement(getElement(locator)).perform();
     }
 
@@ -84,12 +84,11 @@ public class Common {
                 .perform();
     }
 
-    public static void clickOnElementWithActions(By locator){
+    public static void clickOnElementWithActions(By locator) {
         getActions().click(getElement(locator)).perform();
     }
 
     public static String getElementAttributeValue(By locator, String attribute) {
         return getElement(locator).getDomAttribute(attribute);
     }
-
 }
